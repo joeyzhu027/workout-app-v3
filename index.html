@@ -12,63 +12,241 @@
       --muted: #6b7280;
       --border: #dbe3ef;
       --accent: #2563eb;
+      --accent-soft: #dbeafe;
       --soft: #f8fafc;
       --good: #16a34a;
+      --warn: #f59e0b;
+      --danger: #dc2626;
     }
     * { box-sizing: border-box; }
-    body { margin: 0; font-family: Arial, Helvetica, sans-serif; background: var(--bg); color: var(--text); line-height: 1.45; }
-    .container { max-width: 1080px; margin: 0 auto; padding: 16px; }
-    .hero { background: linear-gradient(135deg, #ffffff, #eef4ff); border: 1px solid var(--border); border-radius: 20px; padding: 20px; margin-bottom: 16px; box-shadow: 0 8px 24px rgba(0,0,0,0.05); }
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.45;
+    }
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 16px;
+    }
+    .hero {
+      background: linear-gradient(135deg, #ffffff, #eef4ff);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 20px;
+      margin-bottom: 16px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.05);
+    }
     .hero h1 { margin: 0 0 8px; font-size: 28px; }
     .hero p { margin: 0; color: var(--muted); }
     .chips, .row { display: flex; gap: 8px; flex-wrap: wrap; }
     .chips { margin-top: 14px; }
-    .chip { background: #dbeafe; color: #2563eb; padding: 6px 10px; border-radius: 999px; font-size: 13px; font-weight: 600; }
-    .tabs { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 16px; }
+    .chip {
+      background: var(--accent-soft);
+      color: var(--accent);
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 600;
+    }
+    .tabs {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 16px;
+    }
     button { font: inherit; }
-    .tab-btn, .small-btn, .primary-btn, .secondary-btn, .danger-btn { border: 1px solid var(--border); background: white; color: var(--text); border-radius: 14px; padding: 10px 14px; cursor: pointer; font-size: 14px; }
-    .tab-btn.active { background: var(--accent); color: white; border-color: var(--accent); }
-    .primary-btn { background: var(--accent); color: white; border-color: var(--accent); font-weight: 700; }
+    .tab-btn, .primary-btn, .secondary-btn, .danger-btn, .small-btn {
+      border: 1px solid var(--border);
+      background: white;
+      color: var(--text);
+      border-radius: 14px;
+      padding: 10px 14px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+    .tab-btn.active {
+      background: var(--accent);
+      color: white;
+      border-color: var(--accent);
+    }
+    .primary-btn {
+      background: var(--accent);
+      color: white;
+      border-color: var(--accent);
+      font-weight: 700;
+    }
     .secondary-btn { background: var(--soft); }
-    .danger-btn { background: #fff1f2; color: #be123c; border-color: #fecdd3; }
-    .small-btn { padding: 7px 10px; font-size: 13px; }
+    .danger-btn {
+      background: #fff1f2;
+      color: #be123c;
+      border-color: #fecdd3;
+    }
+    .small-btn {
+      padding: 7px 10px;
+      font-size: 13px;
+    }
     .section { display: none; }
     .section.active { display: block; }
     .grid { display: grid; gap: 16px; }
-    .grid-2 { grid-template-columns: 1.3fr 1fr; }
-    .card { background: var(--card); border: 1px solid var(--border); border-radius: 20px; padding: 18px; box-shadow: 0 8px 24px rgba(0,0,0,0.04); margin-bottom: 16px; }
+    .grid-2 { grid-template-columns: 1.2fr 1fr; }
+    .grid-2-even { grid-template-columns: 1fr 1fr; }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 18px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.04);
+      margin-bottom: 16px;
+    }
     .card h2, .card h3 { margin-top: 0; }
     .muted { color: var(--muted); }
     .small { font-size: 13px; }
-    .block { border: 1px solid var(--border); border-radius: 16px; padding: 14px; margin-bottom: 12px; background: #fcfdff; }
+    .block {
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 14px;
+      margin-bottom: 12px;
+      background: #fcfdff;
+    }
+    .coach-note {
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+      border-radius: 14px;
+      padding: 10px 12px;
+      margin: 8px 0;
+      font-size: 14px;
+    }
+    .item-import-note {
+      background: #f8fafc;
+      border: 1px dashed var(--border);
+      border-radius: 12px;
+      padding: 8px 10px;
+      margin: 8px 0 0 28px;
+      font-size: 13px;
+      color: var(--muted);
+    }
     .progress-wrap { margin: 12px 0 18px; }
-    .progress-bar { width: 100%; height: 12px; border-radius: 999px; background: #e5e7eb; overflow: hidden; }
-    .progress-fill { height: 100%; width: 0%; background: var(--good); transition: width 0.2s ease; }
-    textarea, input[type="text"], select { width: 100%; padding: 10px 12px; border: 1px solid var(--border); border-radius: 12px; font-size: 14px; background: white; }
-    textarea { min-height: 120px; resize: vertical; }
-    label { display: block; margin-bottom: 6px; font-weight: 600; font-size: 14px; }
-    .item-card { border: 1px solid var(--border); border-radius: 14px; padding: 10px; background: white; margin-top: 10px; }
-    .item-main { display: grid; grid-template-columns: auto 1fr auto; gap: 10px; align-items: start; }
-    .item-title { font-size: 14px; line-height: 1.5; padding-top: 1px; }
-    .item-actions { display: flex; gap: 6px; flex-wrap: wrap; justify-content: flex-end; }
-    .item-flags { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 8px; margin-left: 28px; }
-    .flag { border-radius: 999px; padding: 4px 8px; font-size: 12px; font-weight: 700; }
+    .progress-bar {
+      width: 100%;
+      height: 12px;
+      border-radius: 999px;
+      background: #e5e7eb;
+      overflow: hidden;
+    }
+    .progress-fill {
+      height: 100%;
+      width: 0%;
+      background: var(--good);
+      transition: width 0.2s ease;
+    }
+    textarea, input[type="text"], select {
+      width: 100%;
+      padding: 10px 12px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      font-size: 14px;
+      background: white;
+    }
+    textarea { min-height: 140px; resize: vertical; }
+    label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: 600;
+      font-size: 14px;
+    }
+    .item-card {
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 10px;
+      background: white;
+      margin-top: 10px;
+    }
+    .item-main {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      gap: 10px;
+      align-items: start;
+    }
+    .item-title {
+      font-size: 14px;
+      line-height: 1.5;
+      padding-top: 1px;
+    }
+    .item-actions {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+    .item-flags {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      margin-top: 8px;
+      margin-left: 28px;
+    }
+    .flag {
+      border-radius: 999px;
+      padding: 4px 8px;
+      font-size: 12px;
+      font-weight: 700;
+    }
     .flag-note { background: #fef3c7; color: #92400e; }
     .flag-pain { background: #fee2e2; color: #991b1b; }
     .flag-done { background: #dcfce7; color: #166534; }
     .flag-mod { background: #e0e7ff; color: #3730a3; }
     .flag-skip { background: #f3f4f6; color: #374151; }
-    .note-panel, .details-panel { display: none; margin-top: 10px; padding: 12px; border: 1px dashed var(--border); border-radius: 12px; background: var(--soft); margin-left: 28px; }
-    .note-panel.active, .details-panel.active { display: block; }
+    .summary-box, .template-box {
+      white-space: pre-wrap;
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 14px;
+      font-size: 14px;
+    }
+    .summary-box { min-height: 160px; }
+    .log-entry {
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 14px;
+      margin-bottom: 12px;
+      background: white;
+    }
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.45);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+      z-index: 1000;
+    }
+    .modal-backdrop.active { display: flex; }
+    .modal {
+      width: min(720px, 100%);
+      max-height: 85vh;
+      overflow: auto;
+      background: white;
+      border-radius: 18px;
+      border: 1px solid var(--border);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+      padding: 18px;
+    }
+    .modal h3 { margin-top: 0; }
     .details-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-    .summary-box { white-space: pre-wrap; background: #f8fafc; border: 1px solid var(--border); border-radius: 14px; padding: 14px; min-height: 160px; font-size: 14px; }
-    .template-box { white-space: pre-wrap; background: #f8fafc; border: 1px solid var(--border); border-radius: 14px; padding: 14px; font-size: 14px; }
-    .log-entry { border: 1px solid var(--border); border-radius: 16px; padding: 14px; margin-bottom: 12px; background: white; }
     .workout-mode .item-card { padding: 14px; }
     .workout-mode .item-title { font-size: 17px; font-weight: 600; }
-    .workout-mode .small-btn, .workout-mode .primary-btn, .workout-mode .secondary-btn, .workout-mode .danger-btn { min-height: 42px; }
+    .workout-mode .small-btn,
+    .workout-mode .primary-btn,
+    .workout-mode .secondary-btn,
+    .workout-mode .danger-btn,
+    .workout-mode .tab-btn { min-height: 42px; }
     @media (max-width: 860px) {
-      .grid-2, .details-grid { grid-template-columns: 1fr; }
+      .grid-2, .grid-2-even, .details-grid { grid-template-columns: 1fr; }
       .hero h1 { font-size: 24px; }
       .item-main { grid-template-columns: auto 1fr; }
       .item-actions { grid-column: 1 / -1; justify-content: flex-start; margin-left: 28px; }
@@ -83,9 +261,9 @@
       <div class="chips">
         <span class="chip">Import from chat</span>
         <span class="chip">Session tracker</span>
-        <span class="chip">Per-exercise notes</span>
+        <span class="chip">Coach notes</span>
+        <span class="chip">Item notes</span>
         <span class="chip">Copy-ready summary</span>
-        <span class="chip">Log history</span>
       </div>
     </div>
 
@@ -101,9 +279,9 @@
       <div class="grid grid-2">
         <div class="card">
           <h2>Import workout from chat</h2>
-          <p class="muted">Paste a workout using the template format. The app will turn it into your active workout tracker.</p>
+          <p class="muted">Use the labeled format. This parser also accepts old bullet-style items when possible.</p>
           <label for="importText">Paste workout</label>
-          <textarea id="importText" placeholder="Workout Title: Gym 45-min return&#10;Meta: gym | 45 min | mixed&#10;&#10;Block: Warmup&#10;- Bike easy 8 min&#10;&#10;Block: Activation&#10;- Glute bridge 2 x 12&#10;- Dead bug 2 x 10&#10;&#10;Block: Main&#10;- Treadmill run-walk 20 min&#10;- Split squat 3 x 8 each leg&#10;- Single-leg RDL 3 x 8 each leg&#10;&#10;Block: Cooldown&#10;- Hamstring stretch 1 min each side"></textarea>
+          <textarea id="importText" placeholder="Workout Title: Gym 45-min return&#10;Location: gym&#10;Duration: 45 min&#10;Goal: mixed&#10;&#10;Coach Note: Focus on balance today&#10;Coach Note: Keep effort easy&#10;&#10;Block: Warmup&#10;Item: Bike easy 8 min&#10;&#10;Block: Main&#10;Item: Split squat 3 x 8 each leg&#10;Item Note: Focus on left-side control&#10;Item: Single-leg RDL 3 x 8 each leg"></textarea>
           <div class="row" style="margin-top: 12px;">
             <button class="secondary-btn" id="previewImportBtn">Preview import</button>
             <button class="primary-btn" id="startImportBtn">Use as session</button>
@@ -129,17 +307,22 @@
               <button class="danger-btn" id="clearSessionBtn">Clear session</button>
             </div>
           </div>
+
+          <div id="sessionCoachNotes"></div>
+
           <div class="progress-wrap">
             <div class="small muted" id="progressText">Session progress: 0%</div>
             <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
           </div>
+
           <div id="sessionBlocks"></div>
         </div>
+
         <div class="card">
           <h3>Session tips</h3>
-          <div class="block">Use <strong>Add note</strong> when something specific happens during an exercise.</div>
-          <div class="block">Use <strong>Details ▾</strong> for weight, sets, reps, duration, pain, and side issues.</div>
-          <div class="block">The summary includes exercise-level notes so you can use it both as a record and feedback for chat.</div>
+          <div class="block">Tap <strong>Note</strong> for quick comments on a specific exercise.</div>
+          <div class="block">Tap <strong>Details</strong> for weight, sets, reps, duration, pain, and side issues.</div>
+          <div class="block">The summary includes exercise-level details so it works both as your record and as feedback for chat.</div>
         </div>
       </div>
     </div>
@@ -169,7 +352,7 @@
         <div class="card">
           <h2>Session Wrap-Up</h2>
           <p class="muted">Generate a copy-ready summary for feedback or keep it as a workout record.</p>
-          <div class="details-grid">
+          <div class="grid grid-2-even">
             <div>
               <label for="workoutName">Workout name</label>
               <input id="workoutName" type="text" placeholder="Auto-filled from active session" />
@@ -187,7 +370,7 @@
               <input id="weakerLeg" type="text" placeholder="left / right / equal" />
             </div>
           </div>
-          <div class="details-grid" style="margin-top: 12px;">
+          <div class="grid grid-2-even" style="margin-top: 12px;">
             <div>
               <label for="kneePainSelect">Knee pain</label>
               <select id="kneePainSelect">
@@ -237,30 +420,54 @@
     </div>
   </div>
 
+  <div class="modal-backdrop" id="editorModalBackdrop">
+    <div class="modal">
+      <div class="row" style="justify-content: space-between; align-items: center; margin-bottom: 10px;">
+        <h3 id="editorTitle" style="margin: 0;">Edit</h3>
+        <button class="danger-btn" id="closeEditorBtn">Close</button>
+      </div>
+      <div id="editorBody"></div>
+      <div class="row" style="margin-top: 14px; justify-content: flex-end;">
+        <button class="secondary-btn" id="cancelEditorBtn">Cancel</button>
+        <button class="primary-btn" id="saveEditorBtn">Save</button>
+      </div>
+    </div>
+  </div>
+
   <script>
     const coachTemplate = `Workout Title: 45-Min Gym Strength + Run
-Meta: gym | 45 min | mixed
+Location: gym
+Duration: 45 min
+Goal: mixed
+
+Coach Note: Focus on balance today
+Coach Note: Keep effort conversational
+Coach Note: Prioritize control over load
 
 Block: Warmup
-- Bike easy 8 min
+Item: Bike easy 8 min
 
 Block: Activation
-- Glute bridge 2 x 12
-- Dead bug 2 x 10
-- Banded lateral walk 2 x 10 each direction
+Item: Glute bridge 2 x 12
+Item: Dead bug 2 x 10
+Item: Banded lateral walk 2 x 10 each direction
 
 Block: Main
-- Treadmill run-walk 20 min
-- Split squat 3 x 8 each leg
-- Single-leg RDL 3 x 8 each leg
+Item: Treadmill run-walk 20 min
+Item Note: Easy pace only
+Item: Split squat 3 x 8 each leg
+Item Note: Focus on left-side control
+Item: Single-leg RDL 3 x 8 each leg
+Item Note: Slow lowering, no rushing
 
 Block: Cooldown
-- Hamstring stretch 1 min each side
-- Couch stretch 1 min each side`;
+Item: Hamstring stretch 1 min each side
+Item: Couch stretch 1 min each side`;
 
     let workoutMode = false;
     let importedWorkout = null;
     let activeSession = null;
+    let editorState = null;
 
     function escapeHtml(str) {
       return (str || '').replace(/[&<>"']/g, function(m) {
@@ -276,44 +483,68 @@ Block: Cooldown
     function parseWorkout(text) {
       const lines = text.split(/\r?\n/).map(x => x.trim());
       let title = 'Imported Workout';
-      let meta = 'custom';
+      let location = 'custom';
+      let duration = 'custom';
+      let goal = 'custom';
+      const coachNotes = [];
       const blocks = [];
       let currentBlock = null;
+      let lastItem = null;
 
       lines.forEach(line => {
         if (!line) return;
         if (/^Workout Title:/i.test(line)) {
           title = line.split(':').slice(1).join(':').trim() || title;
-        } else if (/^Meta:/i.test(line)) {
-          meta = line.split(':').slice(1).join(':').trim() || meta;
+        } else if (/^Location:/i.test(line)) {
+          location = line.split(':').slice(1).join(':').trim() || location;
+        } else if (/^Duration:/i.test(line)) {
+          duration = line.split(':').slice(1).join(':').trim() || duration;
+        } else if (/^Goal:/i.test(line)) {
+          goal = line.split(':').slice(1).join(':').trim() || goal;
+        } else if (/^Coach Note:/i.test(line)) {
+          coachNotes.push(line.split(':').slice(1).join(':').trim());
         } else if (/^Block:/i.test(line)) {
           currentBlock = { name: line.split(':').slice(1).join(':').trim() || 'Block', items: [] };
           blocks.push(currentBlock);
-        } else if (/^-\s+/.test(line)) {
+          lastItem = null;
+        } else if (/^Item Note:/i.test(line)) {
+          if (lastItem) lastItem.importNote = line.split(':').slice(1).join(':').trim();
+        } else if (/^Item:/i.test(line)) {
           if (!currentBlock) {
             currentBlock = { name: 'Main', items: [] };
             blocks.push(currentBlock);
           }
-          currentBlock.items.push({
-            text: line.replace(/^\-\s+/, ''),
-            done: false,
-            note: '',
-            noteOpen: false,
-            detailsOpen: false,
-            status: 'done',
-            weight: '',
-            sets: '',
-            reps: '',
-            duration: '',
-            side: 'none',
-            pain: '',
-            detailNotes: ''
-          });
+          lastItem = createItemState(line.split(':').slice(1).join(':').trim());
+          currentBlock.items.push(lastItem);
+        } else if (/^[-•]\s+/.test(line)) {
+          if (!currentBlock) {
+            currentBlock = { name: 'Main', items: [] };
+            blocks.push(currentBlock);
+          }
+          lastItem = createItemState(line.replace(/^[-•]\s+/, ''));
+          currentBlock.items.push(lastItem);
         }
       });
 
       if (!blocks.length) return null;
-      return { title, meta, blocks, createdAt: new Date().toLocaleString() };
+      return { title, location, duration, goal, coachNotes, blocks, createdAt: new Date().toLocaleString() };
+    }
+
+    function createItemState(text) {
+      return {
+        text,
+        importNote: '',
+        done: false,
+        note: '',
+        status: 'done',
+        weight: '',
+        sets: '',
+        reps: '',
+        duration: '',
+        side: 'none',
+        pain: '',
+        detailNotes: ''
+      };
     }
 
     function renderImportPreview() {
@@ -322,11 +553,17 @@ Block: Cooldown
         preview.textContent = 'No workout parsed yet.';
         return;
       }
-      preview.innerHTML = `<strong>${escapeHtml(importedWorkout.title)}</strong><div class="small muted" style="margin-top: 8px;">${escapeHtml(importedWorkout.meta)}</div>` +
-        importedWorkout.blocks.map(block =>
-          `<div class="block" style="margin-top: 10px;"><strong>${escapeHtml(block.name)}</strong>` +
-          block.items.map(item => `<div style="margin-top: 8px;">• ${escapeHtml(item.text)}</div>`).join('') + `</div>`
-        ).join('');
+      let html = `<strong>${escapeHtml(importedWorkout.title)}</strong>`;
+      html += `<div class="small muted" style="margin-top: 8px;">${escapeHtml(importedWorkout.location)} • ${escapeHtml(importedWorkout.duration)} • ${escapeHtml(importedWorkout.goal)}</div>`;
+      if (importedWorkout.coachNotes.length) {
+        html += importedWorkout.coachNotes.map(n => `<div class="coach-note">${escapeHtml(n)}</div>`).join('');
+      }
+      html += importedWorkout.blocks.map(block => {
+        return `<div class="block" style="margin-top: 10px;"><strong>${escapeHtml(block.name)}</strong>` +
+          block.items.map(item => `<div style="margin-top: 8px;">• ${escapeHtml(item.text)}</div>${item.importNote ? `<div class="item-import-note">${escapeHtml(item.importNote)}</div>` : ''}`).join('') +
+          `</div>`;
+      }).join('');
+      preview.innerHTML = html;
     }
 
     function getActiveItems() {
@@ -338,12 +575,14 @@ Block: Cooldown
       const titleEl = document.getElementById('sessionTitle');
       const metaEl = document.getElementById('sessionMeta');
       const blocksEl = document.getElementById('sessionBlocks');
+      const coachEl = document.getElementById('sessionCoachNotes');
       const progress = document.getElementById('progressFill');
       const progressText = document.getElementById('progressText');
 
       if (!activeSession) {
         titleEl.textContent = 'No active workout yet';
         metaEl.textContent = 'Import a workout from chat first.';
+        coachEl.innerHTML = '';
         blocksEl.innerHTML = '';
         progress.style.width = '0%';
         progressText.textContent = 'Session progress: 0%';
@@ -352,8 +591,9 @@ Block: Cooldown
       }
 
       titleEl.textContent = activeSession.title;
-      metaEl.textContent = `${activeSession.meta} • imported ${activeSession.createdAt}`;
+      metaEl.textContent = `${activeSession.location} • ${activeSession.duration} • ${activeSession.goal} • imported ${activeSession.createdAt}`;
       document.getElementById('workoutName').value = activeSession.title;
+      coachEl.innerHTML = activeSession.coachNotes.map(n => `<div class="coach-note">${escapeHtml(n)}</div>`).join('');
 
       const items = getActiveItems();
       const done = items.filter(item => item.done).length;
@@ -375,65 +615,18 @@ Block: Cooldown
       const doneFlag = item.done ? '<span class="flag flag-done">done</span>' : '';
       const modFlag = item.status === 'modified' ? '<span class="flag flag-mod">modified</span>' : '';
       const skipFlag = item.status === 'skipped' ? '<span class="flag flag-skip">skipped</span>' : '';
-
       return `
         <div class="item-card">
           <div class="item-main">
             <input type="checkbox" ${item.done ? 'checked' : ''} onchange="toggleDone(${bIdx},${iIdx})" />
             <div class="item-title">${escapeHtml(item.text)}</div>
             <div class="item-actions">
-              <button class="small-btn" onclick="toggleNote(${bIdx},${iIdx})">Add note</button>
-              <button class="small-btn" onclick="toggleDetails(${bIdx},${iIdx})">Details ▾</button>
+              <button class="small-btn" onclick="openNoteEditor(${bIdx},${iIdx})">Note</button>
+              <button class="small-btn" onclick="openDetailsEditor(${bIdx},${iIdx})">Details</button>
             </div>
           </div>
+          ${item.importNote ? `<div class="item-import-note">${escapeHtml(item.importNote)}</div>` : ''}
           <div class="item-flags">${doneFlag}${modFlag}${skipFlag}${noteFlag}${painFlag}</div>
-
-          <div class="note-panel ${item.noteOpen ? 'active' : ''}">
-            <label>Quick note</label>
-            <textarea oninput="updateItemField(${bIdx},${iIdx},'note',this.value)" placeholder="e.g. left leg shaky, hamstrings tight here, skipped last set...">${escapeHtml(item.note)}</textarea>
-          </div>
-
-          <div class="details-panel ${item.detailsOpen ? 'active' : ''}">
-            <div class="details-grid">
-              <div>
-                <label>Status</label>
-                <select onchange="updateItemField(${bIdx},${iIdx},'status',this.value)">
-                  <option value="done" ${item.status === 'done' ? 'selected' : ''}>Done as written</option>
-                  <option value="modified" ${item.status === 'modified' ? 'selected' : ''}>Modified</option>
-                  <option value="skipped" ${item.status === 'skipped' ? 'selected' : ''}>Skipped</option>
-                </select>
-              </div>
-              <div>
-                <label>Side issue</label>
-                <select onchange="updateItemField(${bIdx},${iIdx},'side',this.value)">
-                  <option value="none" ${item.side === 'none' ? 'selected' : ''}>None</option>
-                  <option value="left" ${item.side === 'left' ? 'selected' : ''}>Left</option>
-                  <option value="right" ${item.side === 'right' ? 'selected' : ''}>Right</option>
-                  <option value="both" ${item.side === 'both' ? 'selected' : ''}>Both</option>
-                </select>
-              </div>
-              <div>
-                <label>Weight used</label>
-                <input type="text" value="${escapeHtml(item.weight)}" oninput="updateItemField(${bIdx},${iIdx},'weight',this.value)" placeholder="e.g. bodyweight, 20 lb" />
-              </div>
-              <div>
-                <label>Duration</label>
-                <input type="text" value="${escapeHtml(item.duration)}" oninput="updateItemField(${bIdx},${iIdx},'duration',this.value)" placeholder="e.g. 20 min" />
-              </div>
-              <div>
-                <label>Sets</label>
-                <input type="text" value="${escapeHtml(item.sets)}" oninput="updateItemField(${bIdx},${iIdx},'sets',this.value)" placeholder="e.g. 3" />
-              </div>
-              <div>
-                <label>Reps</label>
-                <input type="text" value="${escapeHtml(item.reps)}" oninput="updateItemField(${bIdx},${iIdx},'reps',this.value)" placeholder="e.g. 8 each leg" />
-              </div>
-            </div>
-            <label style="margin-top: 10px;">Pain / discomfort</label>
-            <input type="text" value="${escapeHtml(item.pain)}" oninput="updateItemField(${bIdx},${iIdx},'pain',this.value)" placeholder="e.g. mild knee pressure, back tightness" />
-            <label style="margin-top: 10px;">Detail notes</label>
-            <textarea oninput="updateItemField(${bIdx},${iIdx},'detailNotes',this.value)" placeholder="Any exercise-specific details...">${escapeHtml(item.detailNotes)}</textarea>
-          </div>
         </div>
       `;
     }
@@ -449,30 +642,99 @@ Block: Cooldown
       renderSession();
     }
 
-    function toggleNote(bIdx, iIdx) {
+    function openNoteEditor(bIdx, iIdx) {
       const item = getItem(bIdx, iIdx);
       if (!item) return;
-      item.noteOpen = !item.noteOpen;
-      renderSession();
+      editorState = { type: 'note', bIdx, iIdx };
+      document.getElementById('editorTitle').textContent = `Note — ${item.text}`;
+      document.getElementById('editorBody').innerHTML = `
+        <label>Quick note</label>
+        <textarea id="editorNoteField" placeholder="e.g. left leg shaky, hamstrings tight here, skipped last set...">${escapeHtml(item.note)}</textarea>
+      `;
+      document.getElementById('editorModalBackdrop').classList.add('active');
     }
 
-    function toggleDetails(bIdx, iIdx) {
+    function openDetailsEditor(bIdx, iIdx) {
       const item = getItem(bIdx, iIdx);
       if (!item) return;
-      item.detailsOpen = !item.detailsOpen;
-      renderSession();
+      editorState = { type: 'details', bIdx, iIdx };
+      document.getElementById('editorTitle').textContent = `Details — ${item.text}`;
+      document.getElementById('editorBody').innerHTML = `
+        <div class="details-grid">
+          <div>
+            <label>Status</label>
+            <select id="detailStatus">
+              <option value="done" ${item.status === 'done' ? 'selected' : ''}>Done as written</option>
+              <option value="modified" ${item.status === 'modified' ? 'selected' : ''}>Modified</option>
+              <option value="skipped" ${item.status === 'skipped' ? 'selected' : ''}>Skipped</option>
+            </select>
+          </div>
+          <div>
+            <label>Side issue</label>
+            <select id="detailSide">
+              <option value="none" ${item.side === 'none' ? 'selected' : ''}>None</option>
+              <option value="left" ${item.side === 'left' ? 'selected' : ''}>Left</option>
+              <option value="right" ${item.side === 'right' ? 'selected' : ''}>Right</option>
+              <option value="both" ${item.side === 'both' ? 'selected' : ''}>Both</option>
+            </select>
+          </div>
+          <div>
+            <label>Weight used</label>
+            <input id="detailWeight" type="text" value="${escapeHtml(item.weight)}" placeholder="e.g. bodyweight, 20 lb" />
+          </div>
+          <div>
+            <label>Duration</label>
+            <input id="detailDuration" type="text" value="${escapeHtml(item.duration)}" placeholder="e.g. 20 min" />
+          </div>
+          <div>
+            <label>Sets</label>
+            <input id="detailSets" type="text" value="${escapeHtml(item.sets)}" placeholder="e.g. 3" />
+          </div>
+          <div>
+            <label>Reps</label>
+            <input id="detailReps" type="text" value="${escapeHtml(item.reps)}" placeholder="e.g. 8 each leg" />
+          </div>
+        </div>
+        <label style="margin-top: 10px;">Pain / discomfort</label>
+        <input id="detailPain" type="text" value="${escapeHtml(item.pain)}" placeholder="e.g. mild knee pressure, back tightness" />
+        <label style="margin-top: 10px;">Detail notes</label>
+        <textarea id="detailNotes" placeholder="Any exercise-specific details...">${escapeHtml(item.detailNotes)}</textarea>
+      `;
+      document.getElementById('editorModalBackdrop').classList.add('active');
     }
 
-    function updateItemField(bIdx, iIdx, field, value) {
-      const item = getItem(bIdx, iIdx);
-      if (!item) return;
-      item[field] = value;
-      if (field === 'status' && value === 'skipped') item.done = false;
+    function closeEditor() {
+      editorState = null;
+      document.getElementById('editorModalBackdrop').classList.remove('active');
+      document.getElementById('editorBody').innerHTML = '';
+    }
+
+    function saveEditor() {
+      if (!editorState) return;
+      const item = getItem(editorState.bIdx, editorState.iIdx);
+      if (!item) return closeEditor();
+
+      if (editorState.type === 'note') {
+        item.note = document.getElementById('editorNoteField').value;
+      } else {
+        item.status = document.getElementById('detailStatus').value;
+        item.side = document.getElementById('detailSide').value;
+        item.weight = document.getElementById('detailWeight').value;
+        item.duration = document.getElementById('detailDuration').value;
+        item.sets = document.getElementById('detailSets').value;
+        item.reps = document.getElementById('detailReps').value;
+        item.pain = document.getElementById('detailPain').value;
+        item.detailNotes = document.getElementById('detailNotes').value;
+        if (item.status === 'skipped') item.done = false;
+      }
+
+      closeEditor();
       renderSession();
     }
 
     function summarizeItem(item) {
       const parts = [];
+      if (item.importNote) parts.push(`import note: ${item.importNote}`);
       if (item.status && item.status !== 'done') parts.push(`status: ${item.status}`);
       if (item.weight) parts.push(`weight: ${item.weight}`);
       if (item.sets) parts.push(`sets: ${item.sets}`);
@@ -496,6 +758,7 @@ Block: Cooldown
 
       const completed = [];
       const exerciseSections = [];
+      const sessionCoachNotes = activeSession?.coachNotes || [];
 
       (activeSession?.blocks || []).forEach(block => {
         block.items.forEach(item => {
@@ -514,6 +777,9 @@ Block: Cooldown
         `Date: ${new Date().toLocaleString()}`,
         `Workout: ${workoutName}`,
         `Actual duration: ${totalTime}`,
+        '',
+        'Coach notes:',
+        sessionCoachNotes.length ? sessionCoachNotes.map(n => `- ${n}`).join('\n') : '- None',
         '',
         'Exercises:',
         exerciseSections.length ? exerciseSections.join('\n\n') : '- No exercise details logged yet',
@@ -632,15 +898,22 @@ Block: Cooldown
       renderLogs();
     });
 
+    document.getElementById('copyTemplateBtn').addEventListener('click', () => copyText(coachTemplate));
+    document.getElementById('closeEditorBtn').addEventListener('click', closeEditor);
+    document.getElementById('cancelEditorBtn').addEventListener('click', closeEditor);
+    document.getElementById('saveEditorBtn').addEventListener('click', saveEditor);
+    document.getElementById('editorModalBackdrop').addEventListener('click', (e) => {
+      if (e.target.id === 'editorModalBackdrop') closeEditor();
+    });
+
     document.getElementById('templateText').textContent = coachTemplate;
     renderImportPreview();
     renderSession();
     renderLogs();
 
     window.toggleDone = toggleDone;
-    window.toggleNote = toggleNote;
-    window.toggleDetails = toggleDetails;
-    window.updateItemField = updateItemField;
+    window.openNoteEditor = openNoteEditor;
+    window.openDetailsEditor = openDetailsEditor;
   </script>
 </body>
 </html>
